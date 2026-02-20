@@ -1,55 +1,117 @@
+/* === Base Styles === */
 * {
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: #f2f5f8;
+  background: linear-gradient(135deg, #eef2f3, #dfe6e9);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 50px;
+  padding-top: 60px;
   min-height: 100vh;
-}
-
-.container {
-  background: #fff;
-  padding: 20px 25px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  width: 350px;
-}
-
-h1 {
-  text-align: center;
   color: #333;
 }
 
+/* === Container === */
+.container {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-3px);
+}
+
+/* === Heading === */
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* === Form === */
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 15px;
 }
 
-input[type="text"], input[type="date"] {
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+input[type="text"],
+input[type="date"] {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+  border-color: #0078d7;
+  box-shadow: 0 0 0 3px rgba(0, 120, 215, 0.2);
+  outline: none;
 }
 
 button {
-  padding: 8px;
-  background-color: #0078d7;
+  padding: 10px;
+  background: #0078d7;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #005fa3;
+  background: #005fa3;
 }
 
+/* === Filter === */
+.filter input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.filter input:focus {
+  border-color: #0078d7;
+  box-shadow: 0 0 0 3px rgba(0, 120, 215, 0.2);
+}
+
+/* === Clear All Button === */
+.clear-all-btn {
+  margin-top: 8px;
+  width: 100%;
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.clear-all-btn:hover {
+  background: #e68900;
+}
+
+/* === To-Do List === */
 ul {
   list-style-type: none;
   margin-top: 20px;
@@ -58,33 +120,43 @@ ul {
 
 li {
   background: #f9fafb;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
+  border: 1px solid #e5e7eb;
+}
+
+li:hover {
+  background: #f1f3f5;
+  transform: scale(1.01);
 }
 
 li.completed {
   background: #d4edda;
-  text-decoration: line-through;
   color: #155724;
+  text-decoration: line-through;
+  border-color: #b9e2c2;
 }
 
 .buttons {
   display: flex;
-  gap: 5px;
+  gap: 8px;
 }
 
+/* === Buttons in List === */
 .complete-btn {
   background: #28a745;
   color: white;
   border: none;
-  padding: 5px 8px;
-  border-radius: 5px;
+  padding: 6px 10px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .complete-btn:hover {
@@ -92,38 +164,28 @@ li.completed {
 }
 
 .delete-btn {
-  background: crimson;
+  background: #dc3545;
   color: white;
   border: none;
-  padding: 5px 8px;
-  border-radius: 5px;
+  padding: 6px 10px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .delete-btn:hover {
-  background: #a71d2a;
+  background: #b02a37;
 }
 
-.filter input {
-  margin-top: 10px;
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
+/* === Small Screen Optimization === */
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
 
-.clear-all-btn {
-  margin-top: 10px;
-  width: 100%;
-  background: #ff9800;
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.clear-all-btn:hover {
-  background: #e68900;
+  h1 {
+    font-size: 1.5rem;
+  }
 }
